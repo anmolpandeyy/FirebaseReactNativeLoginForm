@@ -38,7 +38,7 @@ class App extends Component {
         .auth()
         .signInWithEmailAndPassword(email, password)
         .then(function user(user) {
-          console.log(user);
+          alert(user);
         });
     } catch (error) {
       console.log(error.toString());
@@ -86,8 +86,10 @@ class App extends Component {
             rounded
             success
             style={{ marginTop: 15 }}
-            onPress={() =>
-              this.loginUser(this.state.email, this.state.password)
+            onPress={
+              this.state.email && this.state.password
+                ? () => this.loginUser(this.state.email, this.state.password)
+                : null
             }
           >
             <Text style={{ color: "white" }}>Login</Text>
