@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "clean-start": "watchman watch-del-all && rm -rf node_modules/ && yarn cache clean && yarn install && yarn start -- --reset-cache",
+    "android": "cd android && ./gradlew clean && cd .. && react-native run-android"
   },
   "dependencies": {
     "firebase": "4.9.1",
